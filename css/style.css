@@ -1,0 +1,63 @@
+body {
+    background-color: cornflowerblue;
+    border: solid;
+}
+
+.head {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+form {
+    font-family: 'Merriweather', serif;
+}
+
+.click {
+    font-family: 'Pacifico', cursive;
+}
+
+.search,
+.btn-div {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.btn {
+    border: 0;
+    background: #0087cc;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
+    margin: 10px;
+    outline: 0;
+    padding: 12px 20px;
+    transition: all .1s linear;
+}
+
+.btn:active {
+    box-shadow: 0 2px 0 #006599;
+    transform: translateY(3px);
+}
+
+.iframe-y {
+    border: solid;
+    border-color: #c4302b;
+}
+
+.iframe-v {
+    border: solid;
+    border-color: #4EBBFF;
+}
