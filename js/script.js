@@ -79,15 +79,35 @@ function displayResults(responseJson, isYouTubeApi) {
         } else {
 
             $('#results').append(
-                `<div class="iframe-v">${responseJson.data[i].embed.html}"  
+                `<div class="iframe-container">${responseJson.data[i].embed.html}"  
             <p>${responseJson.data[i].description}</p>
             </div>`);
         }
 
-
     };
     $('#results').removeClass('hidden');
 };
+
+/*
+
+<
+iframe title = "vimeo-player"
+src = "${responseJson.data[i].embed.html}"
+width = "560"
+height = "315"
+frameborder = "0"
+allowfullscreen > < /iframe>
+
+
+$('#results').append(
+    `<div class="iframe-v">${responseJson.data[i].embed.html}"  
+<p>${responseJson.data[i].description}</p>
+</div>`);
+
+*/
+
+
+
 
 
 function watchForm() {
