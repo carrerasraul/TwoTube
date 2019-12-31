@@ -1,8 +1,10 @@
 'use strict';
 // YouTube credentials
-const apiKey = 'AIzaSyAOdIOEeJRVSv7QvsFVkYJ8v07ECw91-kE';
+const apiKey = 'AIzaSyD8MyJnRbBjj9YZl7j8IkTltxvlyDnZI_0';
 const searchURL = 'https://www.googleapis.com/youtube/v3/search';
 const searchVimeoURL = 'https://api.vimeo.com/videos'
+const messageBanner = document.getElementById('desc')
+
 
 function formatQueryParams(params) {
     const queryItems = Object.keys(params)
@@ -66,49 +68,50 @@ function displayResults(responseJson, isYouTubeApi) {
         //$('#results').empty();
     for (let i = 0; i < comparison.length; i++) {
         if (isYouTubeApi) {
-            $('#results').append(
-                `<iframe class="iframe-y" width = "560"
-            height="315"
-            src="https://www.youtube.com/embed/${responseJson.items[i].id.videoId}"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-            </iframe>
-            
-            <p>${responseJson.items[i].snippet.description}</p>`);
-        } else {
+            $('#results').append(`
+            <div class="iframe-y">
+            <h2>${responseJson.items[i].snippet.title}</h2>
 
-            $('#results').append(
-                `<div class="iframe-container">${responseJson.data[i].embed.html}"  
-            <p>${responseJson.data[i].description}</p>
+                <iframe width="560"
+                height="315"
+                src="https://www.youtube.com/embed/${responseJson.items[i].id.videoId}"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+                </iframe>
+
+                <a href="https://youtu.be/${responseJson.items[i].id.videoId}" target="_blank">link to video</a>  
+                <p>${responseJson.items[i].snippet.description}</p>
+            </div>`);
+        } else {
+            $('#results').append(`
+            <div>
+            <h2>${responseJson.data[i].name}</h2>
+            <div class="v-video">${embedURLParser(responseJson.data[i].embed.html)}</div>
+            <a href="${responseJson.data[i].link}" target="_blank">link to video</a>  
+            <p class="p-js">${responseJson.data[i].description}</p>
             </div>`);
         }
 
     };
     $('#results').removeClass('hidden');
+    messageBanner.classList.add('hidden')
 };
 
-/*
-
-<
-iframe title = "vimeo-player"
-src = "${responseJson.data[i].embed.html}"
-width = "560"
-height = "315"
-frameborder = "0"
-allowfullscreen > < /iframe>
-
-
-$('#results').append(
-    `<div class="iframe-v">${responseJson.data[i].embed.html}"  
-<p>${responseJson.data[i].description}</p>
-</div>`);
-
-*/
-
-
-
-
+function embedURLParser(str) {
+    let urlArr = str.split(" ");
+    urlArr = urlArr.map(element => {
+        element = element.split("=");
+        if (element[0] === "height") {
+            element[1] = '"315"';
+        } else if (element[0] === "width") {
+            element[1] = '"560"';
+        }
+        return element.join("=");
+    });
+    urlArr = urlArr.join(" ");
+    return urlArr;
+}
 
 function watchForm() {
     $('form').submit(event => {
