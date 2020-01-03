@@ -12,6 +12,7 @@ function formatQueryParams(params) {
     return queryItems.join('&');
 }
 
+// Retreiving videos from Youtube
 function getYouTubeVideos(query, part) {
     const params = {
         key: apiKey,
@@ -35,12 +36,13 @@ function getYouTubeVideos(query, part) {
         });
 }
 
+// Retreiving videos from Vimeo
 function getVimeoVideo(query) {
     const params = {
         query: query,
     }
     const queryString = formatQueryParams(params)
-    const url = searchVimeoURL + '?' + queryString;
+    const url = searchVimeoURL + '?' + queryString + '?sizes=640x480';
     console.log(url)
     fetch(url, {
             method: "GET",
@@ -59,6 +61,7 @@ function getVimeoVideo(query) {
         });
 }
 
+// Displaying videos 
 function displayResults(responseJson, isYouTubeApi) {
     console.log(responseJson);
 
@@ -69,17 +72,18 @@ function displayResults(responseJson, isYouTubeApi) {
     for (let i = 0; i < comparison.length; i++) {
         if (isYouTubeApi) {
             $('#results').append(`
-            <div class="iframe-y">
+            <div>
             <h2>${responseJson.items[i].snippet.title}</h2>
 
-                <iframe width="560"
+            <br>
+                <iframe class="iframe-y" width="560"
                 height="315"
                 src="https://www.youtube.com/embed/${responseJson.items[i].id.videoId}"
                 frameborder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
                 </iframe>
-
+            <br>
                 <a href="https://youtu.be/${responseJson.items[i].id.videoId}" target="_blank">link to video</a>  
                 <p>${responseJson.items[i].snippet.description}</p>
             </div>`);
