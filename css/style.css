@@ -86,9 +86,14 @@ form {
 .iframe-y {
     border: solid;
     padding-top: 10px;
-    background-color: #C4302B;
+    /* background-color: #C4302B; */
 }
 
+.iframe-v {
+    border: solid;
+    padding-top: 10px;
+    /* background-color: #4EBBFF; */
+}
 .y-video {
     border: solid;
     border-color: #C4302B;
@@ -115,10 +120,6 @@ a {
     font-size: 18px;
 }
 
-.iframe-v {
-    border: solid;
-    border-color: #4EBBFF;
-}
 
 .iframe-container {
     width: 100%;
@@ -153,8 +154,12 @@ a {
         display: grid;
         grid-template-columns: 33.3% 33.3% 33.3%;
     }
-    .iframe-y {
+    .iframe-y, .iframe-y {
         width: 350px;
         height: 330px;
     }
 }
+iframe {
+    border: none;
+}
+
