@@ -3,7 +3,8 @@
 const apiKey = 'AIzaSyD8MyJnRbBjj9YZl7j8IkTltxvlyDnZI_0';
 const searchURL = 'https://www.googleapis.com/youtube/v3/search';
 const searchVimeoURL = 'https://api.vimeo.com/videos'
-//const messageBanner = document.getElementById('desc')
+const messageBanner = document.getElementById('desc')
+
 
 function formatQueryParams(params) {
     const queryItems = Object.keys(params)
@@ -26,12 +27,10 @@ function getYouTubeVideos(query, part) {
             if (response.ok) {
                 return response.json();
             }
-            console.log(response.statusText)
             throw new Error(response.statusText);
         })
         .then(responseJson => displayResults(responseJson, true))
         .catch(err => {
-            console.log(err)
             $('#js-error-message').text(`Something went wrong: ${err.message}`);
         });
 }
@@ -42,7 +41,7 @@ function getVimeoVideo(query) {
         query: query,
     }
     const queryString = formatQueryParams(params)
-    const url = searchVimeoURL + '?' + queryString;
+    const url = searchVimeoURL + '?' + queryString + '?sizes=640x480';
     fetch(url, {
             method: "GET",
             headers: {
@@ -52,12 +51,9 @@ function getVimeoVideo(query) {
             if (response.ok) {
                 return response.json();
             }
-            console.log(response.statusText)
             throw new Error(response.statusText);
         })
-        .then(responseJson => {
-            console.log(responseJson)
-            displayResults(responseJson, false)})
+        .then(responseJson => displayResults(responseJson, false))
         .catch(err => {
             $('#js-error-message').text(`Something went wrong: ${err.message}`);
         });
@@ -86,7 +82,6 @@ function displayResults(responseJson, isYouTubeApi) {
                 <p>${responseJson.items[i].snippet.description.length > 150 ? responseJson.items[i].snippet.description.slice(0, 150) + "..." : responseJson.items[i].snippet.description}</p>
             </div>`);
         } else {
-            console.log(responseJson.data[i].uri.split("/").pop())
             $('#results').append(`
             <div>
             <h2>${responseJson.data[i].name.length > 60 ? responseJson.data[i].name.slice(0, 59) + "..." : responseJson.data[i].name}</h2>
@@ -107,8 +102,9 @@ function displayResults(responseJson, isYouTubeApi) {
 
     };
     $('#results').removeClass('hidden');
-    //messageBanner.classList.add('hidden')
+    messageBanner.classList.add('hidden')
 };
+
 
 function watchForm() {
     $('form').submit(event => {
