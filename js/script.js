@@ -3,7 +3,6 @@
 const apiKey = 'AIzaSyD8MyJnRbBjj9YZl7j8IkTltxvlyDnZI_0';
 const searchURL = 'https://www.googleapis.com/youtube/v3/search';
 const searchVimeoURL = 'https://api.vimeo.com/videos'
-const messageBanner = document.getElementById('desc')
 
 
 function formatQueryParams(params) {
@@ -67,7 +66,7 @@ function displayResults(responseJson, isYouTubeApi) {
         if (isYouTubeApi) {
             $('#results').append(`
             <div>
-            <h2>${responseJson.items[i].snippet.title.length >= 60 ? responseJson.items[i].snippet.title.slice(0, 59) + "..." : responseJson.items[i].snippet.title}</h2>
+            <h3>${responseJson.items[i].snippet.title.length >= 60 ? responseJson.items[i].snippet.title.slice(0, 59) + "..." : responseJson.items[i].snippet.title}</h2>
 
             <br>
                 <iframe class="iframe-y" width="420"
@@ -84,7 +83,7 @@ function displayResults(responseJson, isYouTubeApi) {
         } else {
             $('#results').append(`
             <div>
-            <h2>${responseJson.data[i].name.length > 60 ? responseJson.data[i].name.slice(0, 59) + "..." : responseJson.data[i].name}</h2>
+            <h3>${responseJson.data[i].name.length > 60 ? responseJson.data[i].name.slice(0, 59) + "..." : responseJson.data[i].name}</h2>
 
             <br>
                 <iframe class="iframe-v" width="420"
@@ -102,7 +101,6 @@ function displayResults(responseJson, isYouTubeApi) {
 
     };
     $('#results').removeClass('hidden');
-    messageBanner.classList.add('hidden')
 };
 
 
