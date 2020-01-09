@@ -1,6 +1,5 @@
 body {
     background-color: #F7CB15;
-    border: solid;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,6 +21,16 @@ body {
 .tube {
     color: #4EBBFF;
 }
+.desc {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.click {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
 
 h1 {
     font-family: 'Pacifico', cursive;
@@ -29,12 +38,19 @@ h1 {
 }
 
 h2 {
+    font-family: 'Merriweather', serif;
+    color: #C4302B;
+}
+
+h3 {
     display: flex;
     justify-content: center;
     align-content: center;
     font-family: 'Merriweather', serif;
     color: #2E3532;
     font-size: 20px;
+    padding-top: 40px;
+    text-transform: uppercase;
 }
 
 form {
@@ -43,7 +59,11 @@ form {
 
 .click {
     font-family: 'Pacifico', cursive;
-    color: #FFFFFF;
+    font-size: 45px;
+    color: #4EBBFF;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 .searchBar {
@@ -85,14 +105,16 @@ form {
 
 .iframe-y {
     border: solid;
-    padding-top: 10px;
-    /* background-color: #C4302B; */
+    padding-top: 0px;
+    width: 70vw;
+    height: 30vh;
 }
 
 .iframe-v {
     border: solid;
-    padding-top: 10px;
-    /* background-color: #4EBBFF; */
+    padding-top: 0px;
+    width: 70vw;
+    height: 30vh;
 }
 .y-video {
     border: solid;
@@ -110,13 +132,13 @@ p {
     display: flex;
     justify-content: center;
     align-content: center;
+    text-transform: capitalize;
 }
 
 a {
     display: flex;
     justify-content: center;
     align-content: center;
-    padding-top: 25px;
     font-size: 18px;
 }
 
@@ -134,7 +156,11 @@ a {
     height: 100%;
 }
 
-@media screen and (min-width:480px) and (min-width:900px) {
+/* >>>>>iPad mini 1, iPad 1 and iPad 2 (w/ landscape) <<<<< */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
     body {
         border: solid;
         display: flex;
@@ -143,7 +169,7 @@ a {
         align-items: center;
         text-align: center;
         min-height: 95vh;
-    }
+    }    
     .landingDiv {
         width: 100%;
     }
@@ -154,12 +180,105 @@ a {
         display: grid;
         grid-template-columns: 33.3% 33.3% 33.3%;
     }
-    .iframe-y, .iframe-y {
-        width: 350px;
-        height: 330px;
+    .iframe-y {
+        border: solid;
+        padding-top: 0px;
+        width: 25vw;
+        height: 20vh;
+    }
+    
+    .iframe-v {
+        border: solid;
+        padding-top: 0px;
+        width: 30vw;
+        height: 20vh;
+    }
+        iframe {
+        border: none;
+    }
+
+  }
+
+/* >>>>> Ipad Pro (w/ landscape) <<<<< */
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 2)    {
+    body {
+        border: solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 95vh;
+    }    
+    .landingDiv {
+        width: 100%;
+    }
+    .searchBar {
+        width: 50vw;
+    }
+    .resultsDiv {
+        display: grid;
+        grid-template-columns: 33.3% 33.3% 33.3%;
+    }
+    .iframe-y {
+        border: solid;
+        padding-top: 0px;
+        width: 250px;
+        height: 300px;
+    }
+    
+    .iframe-v {
+        border: solid;
+        padding-top: 0px;
+        width: 290px;
+        height: 270px;
+    }
+        iframe {
+        border: none;
     }
 }
-iframe {
-    border: none;
-}
 
+/* >>>>> Desktop & Laptop <<<<< */
+@media only screen  
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    body {
+        border: solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 95vh;
+    }    
+    .landingDiv {
+        width: 100%;
+    }
+    .searchBar {
+        width: 50vw;
+    }
+    .resultsDiv {
+        display: grid;
+        grid-template-columns: 33.3% 33.3% 33.3%;
+    }
+    .iframe-y {
+        border: solid;
+        padding-top: 0px;
+        width: 25vw;
+        height: 30vh;
+    }
+    
+    .iframe-v {
+        border: solid;
+        padding-top: 0px;
+        width: 25vw;
+        height: 30vh;
+    }
+    iframe {
+        border: none;
+    }
+  }
