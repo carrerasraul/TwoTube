@@ -13,7 +13,6 @@ body {
     justify-content: center;
     align-content: center;
 }
-
 .two {
     color: #C4302B;
 }
@@ -25,11 +24,13 @@ body {
     display: flex;
     justify-content: center;
     align-content: center;
+    color: #2E3532;
 }
-.click {
-    display: flex;
-    justify-content: center;
-    align-content: center;
+.youtube {
+    color: #C4302B;
+}
+.vimeo {
+    color: #4EBBFF;
 }
 
 h1 {
@@ -39,7 +40,7 @@ h1 {
 
 h2 {
     font-family: 'Merriweather', serif;
-    color: #C4302B;
+    color: #2E3532;
 }
 
 h3 {
@@ -60,7 +61,8 @@ form {
 .click {
     font-family: 'Pacifico', cursive;
     font-size: 45px;
-    color: #4EBBFF;
+    color: #ffffff;
+    text-shadow: 2px 2px #000000;    
     display: flex;
     justify-content: center;
     align-content: center;
@@ -71,7 +73,6 @@ form {
     height: 10vh;
     border-radius: 15px;
 }
-
 .search,
 .btn-div {
     display: flex;
@@ -160,9 +161,8 @@ a {
 @media only screen 
   and (min-device-width: 768px) 
   and (max-device-width: 1024px) 
-  and (-webkit-min-device-pixel-ratio: 1) {
+  and (-webkit-min-device-pixel-ratio: 2)  {  
     body {
-        border: solid;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -172,6 +172,33 @@ a {
     }    
     .landingDiv {
         width: 100%;
+    }
+    .desc {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        color: #2E3532;
+    }
+    .youtube {
+        color: #C4302B;
+    }
+    .vimeo {
+        color: #4EBBFF;
+    }
+    .click {
+        font-family: 'Pacifico', cursive;
+        font-size: 45px;
+        color: #ffffff;
+        text-shadow: 2px 2px #000000;    
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    h1 {
+        font-size: 120px;
+    }
+    .search {
+        padding-top: 0px;
     }
     .searchBar {
         width: 50vw;
@@ -205,7 +232,6 @@ a {
   and (max-device-width: 1366px) 
   and (-webkit-min-device-pixel-ratio: 2)    {
     body {
-        border: solid;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -215,6 +241,31 @@ a {
     }    
     .landingDiv {
         width: 100%;
+    }
+    .desc {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        color: #2E3532;
+    }
+    .youtube {
+        color: #C4302B;
+    }
+    .vimeo {
+        color: #4EBBFF;
+    }
+    
+    .click {
+        font-family: 'Pacifico', cursive;
+        font-size: 45px;
+        color: #ffffff;
+        text-shadow: 2px 2px #000000;    
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    h1 {
+        font-size: 200px;
     }
     .searchBar {
         width: 50vw;
@@ -247,7 +298,6 @@ a {
   and (max-device-width: 1600px) 
   and (-webkit-min-device-pixel-ratio: 1) {
     body {
-        border: solid;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -257,6 +307,28 @@ a {
     }    
     .landingDiv {
         width: 100%;
+    }
+    .desc {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        color: #2E3532;
+    }
+    .youtube {
+        color: #C4302B;
+    }
+    .vimeo {
+        color: #4EBBFF;
+    }
+    
+    .click {
+        font-family: 'Pacifico', cursive;
+        font-size: 45px;
+        color: #ffffff;
+        text-shadow: 2px 2px #000000;    
+        display: flex;
+        justify-content: center;
+        align-content: center;
     }
     .searchBar {
         width: 50vw;
