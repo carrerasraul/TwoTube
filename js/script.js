@@ -80,7 +80,7 @@ function displayResults(responseJson, isYouTubeApi) {
                 <a href="https://youtu.be/${responseJson.items[i].id.videoId}" target="_blank">link to video</a>  
                 <p>${responseJson.items[i].snippet.description.length > 150 ? responseJson.items[i].snippet.description.slice(0, 150) + "..." : responseJson.items[i].snippet.description}</p>
             </div>`);
-        } else {
+        } else if (responseJson.data[i].privacy.view !== "ptv"){            
             $('#results').append(`
             <div>
             <h3>${responseJson.data[i].name.length > 60 ? responseJson.data[i].name.slice(0, 59) + "..." : responseJson.data[i].name}</h2>
@@ -88,8 +88,7 @@ function displayResults(responseJson, isYouTubeApi) {
             <br>
                 <iframe class="iframe-v" width="420"
                 height="315"
-                src="https://player.vimeo.com/video/${responseJson.data[i].uri.split("/").pop()}"
-                style="border:0"
+                src="https://player.vimeo.com/video/${responseJson.data[i].uri.split("/").pop()}?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=161446"                style="border:0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
                 </iframe>
