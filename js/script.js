@@ -80,6 +80,7 @@ function displayResults(responseJson, isYouTubeApi) {
                 <a href="https://youtu.be/${responseJson.items[i].id.videoId}" target="_blank">link to video</a>  
                 <p>${responseJson.items[i].snippet.description.length > 150 ? responseJson.items[i].snippet.description.slice(0, 150) + "..." : responseJson.items[i].snippet.description}</p>
             </div>`);
+            //Excludes videos set to private
         } else if (responseJson.data[i].privacy.view !== "ptv"){            
             $('#results').append(`
             <div>
