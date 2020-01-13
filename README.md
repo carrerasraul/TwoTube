@@ -8,8 +8,7 @@ With TwoTube you can search both YouTube and Vimeo with one click! Just search y
 LANDING PAGE
 <img width="1082" alt="Screen Shot 2020-01-12 at 10 54 36 PM" src="https://user-images.githubusercontent.com/52898376/72233807-7a839900-3597-11ea-9f3b-045fb823a408.png">
 
-
-<img width="1440" alt="Screen Shot 2020-01-12 at 11 15 25 PM" src="https://user-images.githubusercontent.com/52898376/72233830-95560d80-3597-11ea-94d6-2079e30db8ab.png">
+RESULTS 
 
 <img width="1435" alt="Screen Shot 2020-01-12 at 11 15 47 PM" src="https://user-images.githubusercontent.com/52898376/72233860-bc144400-3597-11ea-9b5f-ab56614c231c.png">
 
