@@ -14,13 +14,11 @@ body {
     align-content: center;
 }
 .two {
-    color: #C4302B;
-    text-shadow: 2px 2px #000000;    
+    color: #C4302B; 
 }
 
 .tube {
-    color: #4EBBFF;
-    text-shadow: 2px 2px #000000;    
+    color: #4EBBFF;   
 }
 .desc {
     display: flex;
