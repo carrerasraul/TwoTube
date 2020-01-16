@@ -15,10 +15,12 @@ body {
 }
 .two {
     color: #C4302B;
+    text-shadow: 2px 2px #000000;    
 }
 
 .tube {
     color: #4EBBFF;
+    text-shadow: 2px 2px #000000;    
 }
 .desc {
     display: flex;
@@ -72,7 +74,10 @@ form {
     width: 90vw;
     height: 10vh;
     border-radius: 15px;
+    font-size: 22px;
+    padding-left: 20px;
 }
+
 .search,
 .btn-div {
     display: flex;
@@ -173,6 +178,13 @@ a {
     .landingDiv {
         width: 100%;
     }
+    .searchBar {
+        width: 90vw;
+        height: 8vh;
+        border-radius: 15px;
+        font-size: 26px;
+        padding-left: 20px;
+    }
     .desc {
         display: flex;
         justify-content: center;
@@ -185,6 +197,7 @@ a {
     .vimeo {
         color: #4EBBFF;
     }
+    
     .click {
         font-family: 'Pacifico', cursive;
         font-size: 45px;
@@ -241,6 +254,13 @@ a {
     }    
     .landingDiv {
         width: 100%;
+    }
+    .searchBar {
+        width: 90vw;
+        height: 8vh;
+        border-radius: 15px;
+        font-size: 28px;
+        padding-left: 20px;
     }
     .desc {
         display: flex;
@@ -307,6 +327,13 @@ a {
     }    
     .landingDiv {
         width: 100%;
+    }
+    .searchBar {
+        width: 90vw;
+        height: 10vh;
+        border-radius: 15px;
+        font-size: 22px;
+        padding-left: 20px;
     }
     .desc {
         display: flex;
