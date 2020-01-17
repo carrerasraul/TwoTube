@@ -66,7 +66,7 @@ function displayResults(responseJson, isYouTubeApi) {
         if (isYouTubeApi) {
             $('#results').append(`
             <div>
-            <h3>${responseJson.items[i].snippet.title.length >= 60 ? responseJson.items[i].snippet.title.slice(0, 59) + "..." : responseJson.items[i].snippet.title}</h2>
+            <h3 class="youtube1">${responseJson.items[i].snippet.title.length >= 60 ? responseJson.items[i].snippet.title.slice(0, 59) + "..." : responseJson.items[i].snippet.title}</h2>
 
             <br>
                 <iframe class="iframe-y" width="420"
@@ -84,7 +84,7 @@ function displayResults(responseJson, isYouTubeApi) {
         } else if (responseJson.data[i].privacy.view !== "ptv"){            
             $('#results').append(`
             <div>
-            <h3>${responseJson.data[i].name.length > 60 ? responseJson.data[i].name.slice(0, 59) + "..." : responseJson.data[i].name}</h2>
+            <h3 class="vimeo2">${responseJson.data[i].name.length > 60 ? responseJson.data[i].name.slice(0, 59) + "..." : responseJson.data[i].name}</h2>
 
             <br>
                 <iframe class="iframe-v" width="420"
@@ -109,10 +109,11 @@ function watchForm() {
         event.preventDefault();
         const searchTerm = $('#searchTerm').val();
         getYouTubeVideos(searchTerm);
-        getVimeoVideo(searchTerm);
+        getVimeoVideo(searchTerm);        
     });
 }
 
 $(watchForm);
+
 
 
