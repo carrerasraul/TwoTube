@@ -3,19 +3,23 @@
 const apiKey = 'AIzaSyD8MyJnRbBjj9YZl7j8IkTltxvlyDnZI_0';
 const searchURL = 'https://www.googleapis.com/youtube/v3/search';
 const searchVimeoURL = 'https://api.vimeo.com/videos'
-
-
+const messageBanner = document.getElementById('desc')
+let youtubeList;        // for making list of youTube videos
+let vimeoList;          // for making list for vimeo videos
+let videoListInterface; // for making a list of combined iframes from all video data
+let searchTerm;         // for taking in user input
+const $resultsElement = $('#results');       // caching results element
+const $searchTermElement = $('#searchTerm'); // caching input element
 function formatQueryParams(params) {
     const queryItems = Object.keys(params)
         .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
     return queryItems.join('&');
 }
-
 // Retreiving videos from Youtube
-function getYouTubeVideos(query, part) {
+function getYouTubeVideos() {
     const params = {
         key: apiKey,
-        q: query,
+        q: searchTerm,
         part: 'snippet',
         type: 'video'
     };
@@ -28,19 +32,21 @@ function getYouTubeVideos(query, part) {
             }
             throw new Error(response.statusText);
         })
-        .then(responseJson => displayResults(responseJson, true))
+        .then(responseJson => {
+            youtubeList = responseJson.items
+            getVimeoVideos()
+        })
         .catch(err => {
             $('#js-error-message').text(`Something went wrong: ${err.message}`);
         });
 }
-
 // Retreiving videos from Vimeo
-function getVimeoVideo(query) {
+function getVimeoVideos() {
     const params = {
-        query: query,
+        query: searchTerm,
     }
     const queryString = formatQueryParams(params)
-    const url = searchVimeoURL + '?' + queryString + '?sizes=640x480';
+    const url = searchVimeoURL + '?' + queryString;
     fetch(url, {
             method: "GET",
             headers: {
@@ -52,68 +58,69 @@ function getVimeoVideo(query) {
             }
             throw new Error(response.statusText);
         })
-        .then(responseJson => displayResults(responseJson, false))
+        .then(responseJson => {
+            vimeoList = responseJson.data
+            render()
+        })
         .catch(err => {
             $('#js-error-message').text(`Something went wrong: ${err.message}`);
         });
 }
-
-// Displaying videos 
-function displayResults(responseJson, isYouTubeApi) {
-    $('results').empty();
-    let comparison = isYouTubeApi ? responseJson.items : responseJson.data
-    for (let i = 0; i < comparison.length; i++) {
-        if (isYouTubeApi) {
-            $('#results').append(`
+// generate UI for videos this function will be called for each video in each list
+function generateUI(isYouTube, isVimeo, video) {
+        if (isYouTube) {
+            return`
             <div>
-            <h3 class="youtube1">${responseJson.items[i].snippet.title.length >= 60 ? responseJson.items[i].snippet.title.slice(0, 59) + "..." : responseJson.items[i].snippet.title}</h2>
-
+            <h2>${video.snippet.title.length >= 60 ? video.snippet.title.slice(0, 59) + "..." : video.snippet.title}</h2>
             <br>
                 <iframe class="iframe-y" width="420"
                 height="315"
-                src="https://www.youtube.com/embed/${responseJson.items[i].id.videoId}"
+                src="https://www.youtube.com/embed/${video.id.videoId}"
                 style="border:0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
                 </iframe>
             <br>
-                <a href="https://youtu.be/${responseJson.items[i].id.videoId}" target="_blank">link to video</a>  
-                <p>${responseJson.items[i].snippet.description.length > 150 ? responseJson.items[i].snippet.description.slice(0, 150) + "..." : responseJson.items[i].snippet.description}</p>
-            </div>`);
-            //Excludes videos set to private
-        } else if (responseJson.data[i].privacy.view !== "ptv"){            
-            $('#results').append(`
+                <a href="https://youtu.be/${video.id.videoId}" target="_blank">link to video</a>  
+                <p>${video.snippet.description.length > 150 ? video.snippet.description.slice(0, 150) + "..." : video.snippet.description}</p>
+            </div>
+            `;
+        } else if (isVimeo) {
+            return`
             <div>
-            <h3 class="vimeo2">${responseJson.data[i].name.length > 60 ? responseJson.data[i].name.slice(0, 59) + "..." : responseJson.data[i].name}</h2>
-
+            <h2>${video.name.length > 60 ? video.name.slice(0, 59) + "..." : video.name}</h2>
             <br>
                 <iframe class="iframe-v" width="420"
                 height="315"
-                src="https://player.vimeo.com/video/${responseJson.data[i].uri.split("/").pop()}?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=161446"                style="border:0"
+                src="https://player.vimeo.com/video/${video.uri.split("/").pop()}?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=161446"
+                style="border:0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
                 </iframe>
             <br>
-                <a href="${responseJson.data[i].link}" target="_blank">link to video</a>  
-                <p>${responseJson.data[i].description.length >= 150 ? responseJson.data[i].description.slice(0, 150) + "..." : responseJson.data[i].description}</p>
-            </div>`);
+                <a href="${video.link}" target="_blank">link to video</a>  
+                <p>${video.description && video.description.length >= 150 ? video.description.slice(0, 150) + "..." : video.description}</p>
+            </div>
+            `;
         }
-
-    };
-    $('#results').removeClass('hidden');
 };
-
-
 function watchForm() {
     $('form').submit(event => {
         event.preventDefault();
-        const searchTerm = $('#searchTerm').val();
-        getYouTubeVideos(searchTerm);
-        getVimeoVideo(searchTerm);        
+        searchTerm = $searchTermElement.val();
+        getYouTubeVideos();             // We first call youTubeAPI
+        $searchTermElement.val("");     // Reset search term element back to empty
+        $resultsElement.html("<h3>Loading...</h3>").css("text-align", "center"); // display loading message to user
     });
 }
-
-$(watchForm);
-
-
-
+function render() {
+    videoListInterface = [] // initialize video list interface to empty array
+    youtubeList.forEach(video => {
+        videoListInterface.push(generateUI(true, null, video)); // create UI for youTube videos
+    });
+    vimeoList.forEach(video => {
+        videoListInterface.push(generateUI(null, true, video)); // create UI for vimeo videos
+    });
+    $resultsElement.html(videoListInterface.join("")) // add combined IU to DOM
+}
+$(watchForm)
