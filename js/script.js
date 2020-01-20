@@ -33,12 +33,15 @@ function getYouTubeVideos() {
             throw new Error(response.statusText);
         })
         .then(responseJson => {
-            youtubeList = responseJson.items
-            getVimeoVideos()
-        })
-        .catch(err => {
-            $('#js-error-message').text(`Something went wrong: ${err.message}`);
+            if (responseJson.items.length) {
+                   youtubeList = responseJson.items
+                  getVimeoVideos()  
+            }
+           else {
+              $('#js-error-message').text(`NO RESULTS`);
+           }
         });
+
 }
 // Retreiving videos from Vimeo
 function getVimeoVideos() {
