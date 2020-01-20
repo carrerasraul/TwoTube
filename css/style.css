@@ -63,8 +63,8 @@ form {
 .click {
     font-family: 'Pacifico', cursive;
     font-size: 45px;
-    color: #ffffff;
-    text-shadow: 2px 2px #000000;    
+    color: #000000;
+    text-shadow: 2px 2px #ffffff;    
     display: flex;
     justify-content: center;
     align-content: center;
@@ -201,8 +201,8 @@ a {
     .click {
         font-family: 'Pacifico', cursive;
         font-size: 45px;
-        color: #ffffff;
-        text-shadow: 2px 2px #000000;    
+        color: #000000;
+        text-shadow: 2px 2px #ffffff;    
         display: flex;
         justify-content: center;
         align-content: center;
@@ -278,8 +278,8 @@ a {
     .click {
         font-family: 'Pacifico', cursive;
         font-size: 45px;
-        color: #ffffff;
-        text-shadow: 2px 2px #000000;    
+        color: #000000;
+        text-shadow: 2px 2px #ffffff;    
         display: flex;
         justify-content: center;
         align-content: center;
@@ -351,8 +351,8 @@ a {
     .click {
         font-family: 'Pacifico', cursive;
         font-size: 45px;
-        color: #ffffff;
-        text-shadow: 2px 2px #000000;    
+        color: #000000;
+        text-shadow: 2px 2px #ffffff;    
         display: flex;
         justify-content: center;
         align-content: center;
