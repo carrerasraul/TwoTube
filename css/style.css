@@ -19,7 +19,7 @@ body {
 }
 
 .tube {
-    color: #4EBBFF;
+    color: #3300FF;
     text-shadow: 2px 2px #000000;    
 }
 .desc {
@@ -32,7 +32,7 @@ body {
     color: #C4302B;
 }
 .vimeo {
-    color: #4EBBFF;
+    color: #3300FF;
 }
 
 h1 {
@@ -129,7 +129,7 @@ form {
 
 .v-video {
     border: solid;
-    background-color: #4EBBFF;
+    background-color: #3300FF;
 }
 
 p {
@@ -195,7 +195,7 @@ a {
         color: #C4302B;
     }
     .vimeo {
-        color: #4EBBFF;
+        color: #3300FF;
     }
     
     .click {
@@ -272,7 +272,7 @@ a {
         color: #C4302B;
     }
     .vimeo {
-        color: #4EBBFF;
+        color: #3300FF;
     }
     
     .click {
@@ -345,7 +345,7 @@ a {
         color: #C4302B;
     }
     .vimeo {
-        color: #4EBBFF;
+        color: #3300FF;
     }
     
     .click {
