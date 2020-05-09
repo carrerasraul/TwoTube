@@ -6,33 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TwoTube API Project</title>
+<<<<<<< HEAD
     <link href="https://fonts.googleapis.com/css?family=Merriweather|Pacifico&display=swap" rel="stylesheet">
+=======
+    <link href="https://fonts.googleapis.com/css?family=Merriweather%7CPacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+>>>>>>> a902131c206dde20b02d14a6f8baa49d5bea1a24
     <link href="./css/style.css" rel="stylesheet">
 </head>
 
 <body>
+<main>
+    
     <div class="landingDiv">
         <header class="head">
             <h1><span class="two">Two</span><span class="tube">Tube</span></h1>
         </header>
 
         <form id="searchForm">
-            <div class="search">
+            <label class="search">
                 <input type="text" class="searchBar" placeholder="Search" required id="searchTerm">
-            </div>
+            </label>
             <div class="btn-div">
-                <input class="btn" type="submit" id="submit-btn" class="button">
+                <input class="btn" value="Submit" type="submit" id="submit-btn">
             </div>
-            <div id="results" class="hidden">
+            <div id="results" class="resultsDiv hidden">
             </div>
-            <div>
-                <h2>Search YouTube and Vimeo, in one <span class="click">Click!</span></h2>
+            <div id="js-error-message"></div>
+            <div class="desc">
+                <h2>Search <span class="youtube">YouTube</span> and <span class="vimeo">Vimeo</span>, in one <span class="click">Click!</span></h2>
             </div>
         </form>
 
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="./js/script.js"></script>
+<<<<<<< HEAD
+=======
+    </main>
+>>>>>>> a902131c206dde20b02d14a6f8baa49d5bea1a24
 </body>
 
 </html>

@@ -1,6 +1,5 @@
 body {
-    background-color: #F7CB15;
-    border: solid;
+    background-color: rgb(255, 205, 5);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,13 +13,26 @@ body {
     justify-content: center;
     align-content: center;
 }
-
 .two {
     color: #C4302B;
+    text-shadow: 2px 2px #000000;    
 }
 
 .tube {
-    color: #4EBBFF;
+    color: #3300FF;
+    text-shadow: 2px 2px #000000;    
+}
+.desc {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    color: #2E3532;
+}
+.youtube {
+    color: #C4302B;
+}
+.vimeo {
+    color: #3300FF;
 }
 
 h1 {
@@ -29,9 +41,19 @@ h1 {
 }
 
 h2 {
+    font-family: 'Merriweather', serif;
+    color: #2E3532;
+}
+
+h3 {
     display: flex;
     justify-content: center;
     align-content: center;
+    font-family: 'Merriweather', serif;
+    color: #2E3532;
+    font-size: 20px;
+    padding-top: 40px;
+    text-transform: uppercase;
 }
 
 form {
@@ -40,12 +62,20 @@ form {
 
 .click {
     font-family: 'Pacifico', cursive;
-    color: #FFFFFF;
+    font-size: 45px;
+    color: #000000;
+    text-shadow: 2px 2px #ffffff;    
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 
 .searchBar {
-    width: 100%;
+    width: 90vw;
     height: 10vh;
+    border-radius: 15px;
+    font-size: 22px;
+    padding-left: 20px;
 }
 
 .search,
@@ -73,47 +103,288 @@ form {
     transform: translateY(3px);
 }
 
+.results {
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    border: solid;
+}
+
 .iframe-y {
     border: solid;
+<<<<<<< HEAD
 }
 
 .iframe-y > iframe {
     border: 3px solid #c4302b;
-}
-
-p {
-    font-size: 16px;
-    display: flex;
-    flex-wrap: wrap;
+=======
+    padding-top: 0px;
+    width: 70vw;
+    height: 30vh;
 }
 
 .iframe-v {
     border: solid;
-    border-color: #4EBBFF;
+    padding-top: 0px;
+    width: 70vw;
+    height: 30vh;
+}
+.y-video {
+    border: solid;
+    border-color: #C4302B;
 }
 
+.v-video {
+    border: solid;
+    background-color: #3300FF;
+>>>>>>> a902131c206dde20b02d14a6f8baa49d5bea1a24
+}
+
+p {
+    font-size: 16px;
+    font-family: 'Acme', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-transform: capitalize;
+}
+
+a {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-size: 18px;
+}
+
+
 .iframe-container {
-    position: relative;
     width: 100%;
     padding-bottom: 56.25%;
     height: 0;
 }
 
 .iframe-container iframe {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
 }
 
-
-/*
-@media screen and (min-width:480px) and (min-width:900px) {
-    .iframe-v {
-        display: table-column;
+/* >>>>>iPad mini 1, iPad 1 and iPad 2 (w/ landscape) <<<<< */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2)  {  
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 95vh;
+    }    
+    .landingDiv {
+        width: 100%;
+    }
+    .searchBar {
+        width: 90vw;
+        height: 8vh;
+        border-radius: 15px;
+        font-size: 26px;
+        padding-left: 20px;
+    }
+    .desc {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        color: #2E3532;
+    }
+    .youtube {
+        color: #C4302B;
+    }
+    .vimeo {
+        color: #3300FF;
+    }
+    
+    .click {
+        font-family: 'Pacifico', cursive;
+        font-size: 45px;
+        color: #000000;
+        text-shadow: 2px 2px #ffffff;    
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    h1 {
+        font-size: 120px;
+    }
+    .search {
+        padding-top: 0px;
+    }
+    .searchBar {
+        width: 50vw;
+    }
+    .resultsDiv {
+        display: grid;
+        grid-template-columns: 33.3% 33.3% 33.3%;
     }
     .iframe-y {
-        display: table-column;
+        border: solid;
+        padding-top: 0px;
+        width: 25vw;
+        height: 20vh;
+    }
+    
+    .iframe-v {
+        border: solid;
+        padding-top: 0px;
+        width: 30vw;
+        height: 20vh;
+    }
+        iframe {
+        border: none;
+    }
+
+  }
+
+/* >>>>> Ipad Pro (w/ landscape) <<<<< */
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 2)    {
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 95vh;
+    }    
+    .landingDiv {
+        width: 100%;
+    }
+    .searchBar {
+        width: 90vw;
+        height: 8vh;
+        border-radius: 15px;
+        font-size: 28px;
+        padding-left: 20px;
+    }
+    .desc {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        color: #2E3532;
+    }
+    .youtube {
+        color: #C4302B;
+    }
+    .vimeo {
+        color: #3300FF;
+    }
+    
+    .click {
+        font-family: 'Pacifico', cursive;
+        font-size: 45px;
+        color: #000000;
+        text-shadow: 2px 2px #ffffff;    
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    h1 {
+        font-size: 200px;
+    }
+    .searchBar {
+        width: 50vw;
+    }
+    .resultsDiv {
+        display: grid;
+        grid-template-columns: 33.3% 33.3% 33.3%;
+    }
+    .iframe-y {
+        border: solid;
+        padding-top: 0px;
+        width: 250px;
+        height: 300px;
+    }
+    
+    .iframe-v {
+        border: solid;
+        padding-top: 0px;
+        width: 290px;
+        height: 270px;
+    }
+        iframe {
+        border: none;
     }
 }
+
+/* >>>>> Desktop & Laptop <<<<< */
+@media only screen  
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 95vh;
+    }    
+    .landingDiv {
+        width: 100%;
+    }
+    .searchBar {
+        width: 90vw;
+        height: 10vh;
+        border-radius: 15px;
+        font-size: 22px;
+        padding-left: 20px;
+    }
+    .desc {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        color: #2E3532;
+    }
+    .youtube {
+        color: #C4302B;
+    }
+    .vimeo {
+        color: #3300FF;
+    }
+    
+    .click {
+        font-family: 'Pacifico', cursive;
+        font-size: 45px;
+        color: #000000;
+        text-shadow: 2px 2px #ffffff;    
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    .searchBar {
+        width: 50vw;
+    }
+    .resultsDiv {
+        display: grid;
+        grid-template-columns: 33.3% 33.3% 33.3%;
+    }
+    .iframe-y {
+        border: solid;
+        padding-top: 0px;
+        width: 25vw;
+        height: 30vh;
+    }
+    
+    .iframe-v {
+        border: solid;
+        padding-top: 0px;
+        width: 25vw;
+        height: 30vh;
+    }
+    iframe {
+        border: none;
+    }
+  }
