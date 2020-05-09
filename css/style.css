@@ -75,7 +75,10 @@ form {
 
 .iframe-y {
     border: solid;
-    border-color: #c4302b;
+}
+
+.iframe-y > iframe {
+    border: 3px solid #c4302b;
 }
 
 p {
